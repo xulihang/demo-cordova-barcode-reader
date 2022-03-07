@@ -67,6 +67,7 @@ function openFilePicker(srcType) {
     var options = setOptions(srcType);
 
     navigator.camera.getPicture(function cameraSuccess(base64) {
+        document.getElementById("results").innerHTML = "decoding...";
         cordova.plugins.DBR.decode(base64,onDecoded);
     }, function cameraError(error) {
         console.debug("Unable to obtain picture: " + error, "app");
@@ -82,7 +83,7 @@ function setOptions(srcType) {
         sourceType: srcType,
         encodingType: Camera.EncodingType.JPEG,
         mediaType: Camera.MediaType.PICTURE,
-        allowEdit: true,
+        allowEdit: false,
         correctOrientation: true
     }
     return options;
