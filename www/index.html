@@ -26,11 +26,25 @@
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/index.css">
         <title>Hello World</title>
+        <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+        <script>eruda.init();</script>
+        <style>
+            .barcode-polygon {
+              fill:rgba(85,240,40,0.5);          
+              stroke:green;
+              stroke-width:1;
+            }
+        </style>
     </head>
     <body>
         <div class="app">
+            <button class="control-button"  disabled onclick="startScan()">Start Scan</button>
+            <button class="control-button"  disabled onclick="stopScan()">Stop Scan</button>
+            <button class="control-button"  disabled onclick="pauseScan()">Pause Scan</button>
+            <button class="control-button"  disabled onclick="resumeScan()">Resume Scan</button>
             <button class="control-button" disabled onclick="takeAndDecode()">Take photo and decode</button>
             <button class="control-button"  disabled onclick="chooseAndDecode()">Decode image in gallery</button>
+            <button class="control-button"  disabled onclick="destroy()">Destroy</button>
             <ol id="results"></ol>
         </div>
         <script src="cordova.js"></script>
