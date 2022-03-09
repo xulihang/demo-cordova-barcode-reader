@@ -23,6 +23,7 @@ function destroy(){
 function startScan(){
     console.log("start scan pressed");
     document.body.style.backgroundColor = "transparent";
+    document.getElementById("results").innerHTML = "";
     addSVGOverlay(1280,720);
     cordova.plugins.DBR.startScanning("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", onScanned, onScanFailed);
 }
