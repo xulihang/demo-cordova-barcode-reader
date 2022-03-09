@@ -26,7 +26,7 @@
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/index.css">
         <title>Hello World</title>
-        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+        <script src="//cdn.jsdelivr.net/npm/eruda"></script>
         <script>eruda.init();</script>
         <style>
             .barcode-polygon {
@@ -53,6 +53,7 @@
                 <button class="control-button"  disabled onclick="chooseAndDecode()">Decode image in gallery</button>
                 <button class="control-button"  disabled onclick="destroy()">Destroy</button>
                 <button class="control-button"  disabled onclick="switchTorch()">Switch Torch</button>
+                <button class="control-button"  disabled onclick="getResolution()">Get Resolution</button>
             </div>
             <ol id="results"></ol>
         </div>

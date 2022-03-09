@@ -21,9 +21,10 @@ function destroy(){
 }
 
 function startScan(){
+    console.log("start scan pressed");
     document.body.style.backgroundColor = "transparent";
     addSVGOverlay(1280,720);
-    cordova.plugins.DBR.startScanning("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", onScanned);
+    cordova.plugins.DBR.startScanning("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", onScanned, onScanFailed);
 }
 
 function stopScan(){
@@ -39,8 +40,13 @@ function resumeScan(){
 }
 
 function onScanned(scanResult){
+    console.log("scanned");
     console.log(scanResult);
     showOverlayOnSVG(scanResult);
+}
+
+function onScanFailed(){
+    console.log("start scan failed");
 }
 
 function switchTorch(){
@@ -50,6 +56,14 @@ function switchTorch(){
     } else {
         desiredTorchStatus = "on";
     }
+}
+
+function getResolution(){
+    cordova.plugins.DBR.getResolution(onGotResolution);
+}
+
+function onGotResolution(res){
+    alert(res);
 }
 
 function addSVGOverlay(width, height){
